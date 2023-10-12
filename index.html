@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Pomodoro Timer</title>
+    <title>Pomodoro To-Do</title>
 </head>
 <body>
-    <h1>Pomodoro Timer</h1>
-    <p id="timer">25:00</p>
-    <button onclick="startTimer()">Start</button>
-    <button onclick="stopTimer()">Stop</button>
-    <button onclick="resetTimer()">Reset</button>
+    <h1>Pomodoro To-Do</h1>
+
+    <!-- Timer Section -->
+    <div id="timer-section">
+        <p id="timer">25:00</p>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
+
+    <!-- To-Do Section -->
+    <div id="todo-section">
+        <input type="text" id="taskInput" placeholder="Add a new task">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- Audio & Scripts -->
+    <audio id="beep" src="beep.mp3" type="audio/mp3" preload="auto"></audio>
     <script src="script.js"></script>
 </body>
 </html>
