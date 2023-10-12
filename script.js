@@ -11,6 +11,7 @@ const resetTimer = /* ... */;
 const playBeep = /* ... */;
 updateDisplay();
 
+
 // To-Do Variables & Functions
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
@@ -20,16 +21,25 @@ const addTask = () => {
     if (taskText === "") return;
 
     const newTask = document.createElement("li");
-    newTask.textContent = taskText;
-
-    // Add delete button to each task
+    
+    // Task text
+    const taskTitle = document.createElement("span");
+    taskTitle.textContent = taskText;
+    
+    // Notes Input
+    const taskNotes = document.createElement("textarea");
+    taskNotes.placeholder = "Add notes here...";
+    
+    // Delete Button
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.onclick = () => {
         taskList.removeChild(newTask);
     };
-
-    // Append the delete button and the task to the list
+    
+    // Appending Elements
+    newTask.appendChild(taskTitle);
+    newTask.appendChild(taskNotes);
     newTask.appendChild(deleteButton);
     taskList.appendChild(newTask);
 
@@ -43,3 +53,4 @@ taskInput.addEventListener("keyup", (event) => {
         addTask();
     }
 });
+

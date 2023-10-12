@@ -37,3 +37,19 @@ button {
     align-items: center;
     width: 250px;
 }
+
+#todo-section span {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#todo-section textarea {
+    width: 100%;
+    margin: 5px 0;
+    resize: vertical;
+}
+
+#todo-section button {
+    background-color: red;
+    color: white;
+}
