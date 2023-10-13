@@ -48,7 +48,15 @@ const addTask = () => {
         detailsButton.textContent = "Details";
         detailsButton.addEventListener("click", () => {
             openDetailsModal(li);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', () => {
+            taskList.removeChild(task);
         });
+
+        task.appendChild(deleteButton);
+        taskList.appendChild(task);
 
         li.appendChild(detailsButton);
         taskList.appendChild(li);
@@ -71,7 +79,7 @@ const openDetailsModal = (taskItem) => {
     saveButton.onclick = () => {
         const details = detailsInput.value.trim();
         const detailsSpan = document.createElement("span");
-        detailsSpan.textContent = ` Details: ${details}`;
+        detailsSpan.textContent = ` ${details}`;
         taskItem.appendChild(detailsSpan);
 
         modal.style.display = "none";
