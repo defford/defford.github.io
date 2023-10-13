@@ -65,7 +65,7 @@ const addTask = () => {
         li.appendChild(detailsButton);
         taskList.appendChild(li);
         taskInput.value = "";
-    }
+        )}
 };
 
 const openDetailsModal = (taskItem) => {
