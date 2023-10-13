@@ -84,5 +84,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             modal.style.display = "none";
         }
-    }}}
+    }}
 )
