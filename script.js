@@ -40,7 +40,10 @@ const addTask = () => {
     const taskText = taskInput.value.trim();
     if (taskText !== "") {
         const li = document.createElement("li");
-        li.textContent = taskText;
+
+        const taskTextNode = document.createElement("span");
+        taskTextNode.textContent = taskText;
+        li.appendChild(taskTextNode);
 
         const detailsButton = document.createElement("button");
         detailsButton.textContent = "Details";
