@@ -5,8 +5,11 @@ const timerElement = document.getElementById("timer");
 
 
 const updateDisplay = () => {
-    // Your implementation for updating the display...
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 };
+
 const startTimer = () => {
     interval = setInterval(() => {
         timeLeft--;
@@ -34,7 +37,13 @@ const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
 const addTask = () => {
-    // ... (rest of the addTask function remains unchanged)
+    const taskText = taskInput.value.trim();
+    if (taskText !== "") {
+        const li = document.createElement("li");
+        li.textContent = taskText;
+        taskList.appendChild(li);
+        taskInput.value = "";
+    }
 };
 
 // Allow adding tasks with "Enter" key
