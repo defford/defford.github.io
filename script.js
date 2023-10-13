@@ -3,7 +3,6 @@ let interval;
 let timeLeft = 25 * 60;
 const timerElement = document.getElementById("timer");
 
-
 const updateDisplay = () => {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -32,7 +31,7 @@ const resetTimer = () => {
 };
 updateDisplay();
 
-// To-Do Variables & Functions (no changes needed here)
+// To-Do Variables & Functions
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
@@ -57,7 +56,7 @@ const addTask = () => {
     }
 };
 
-const openDetailsModal = (taskText) => {
+const openDetailsModal = (taskItem) => {
     const modal = document.getElementById("detailsModal");
     const closeButton = document.querySelector(".close");
     const saveButton = document.getElementById("saveButton");
@@ -78,17 +77,3 @@ const openDetailsModal = (taskText) => {
         modal.style.display = "none";
     }
 };
-
-    modalContent.appendChild(closeButton);
-    modalContent.appendChild(detailsInput);
-    modalContent.appendChild(saveButton);
-    modal.appendChild(modalContent);
-    document.body.appendChild(modal);
-};
-
-// Allow adding tasks with "Enter" key
-taskInput.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-        addTask();
-    }
-});
