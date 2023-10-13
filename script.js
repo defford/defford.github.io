@@ -48,24 +48,20 @@ const addTask = () => {
         detailsButton.textContent = "Details";
         detailsButton.addEventListener("click", () => {
             openDetailsModal(li);
-
-        const detailsButton = document.createElement("button");
-        detailsButton.textContent = "Details";
-        detailsButton.addEventListener("click", () => {
-            openDetailsModal(li);
         });
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', () => {
-            taskList.removeChild(li); // Changed from 'task' to 'li'
+            taskList.removeChild(li);
         });
 
-        li.appendChild(deleteButton); // Changed from 'task' to 'li'
+        li.appendChild(deleteButton);
         li.appendChild(detailsButton);
         taskList.appendChild(li);
         taskInput.value = "";
-});
+    }
+};
 
 const openDetailsModal = (taskItem) => {
     const modal = document.getElementById("detailsModal");
