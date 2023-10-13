@@ -45,7 +45,7 @@ const addTask = () => {
         const detailsButton = document.createElement("button");
         detailsButton.textContent = "Details";
         detailsButton.addEventListener("click", () => {
-            openDetailsModal(taskText);
+            openDetailsModal(li);
         });
 
         li.appendChild(detailsButton);
@@ -68,10 +68,8 @@ const openDetailsModal = (taskText) => {
 
     saveButton.onclick = () => {
         const details = detailsInput.value.trim();
-        // Update the task item with the details
-        // For example, you can create a <span> element and append it to the task item
         const detailsSpan = document.createElement("span");
-        detailsSpan.textContent = details;
+        detailsSpan.textContent = ` Details: ${details}`;
         taskItem.appendChild(detailsSpan);
 
         modal.style.display = "none";
