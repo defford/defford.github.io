@@ -42,16 +42,47 @@ const addTask = () => {
         const li = document.createElement("li");
         li.textContent = taskText;
 
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click", () => {
-            li.parentNode.removeChild(li);
+        const detailsButton = document.createElement("button");
+        detailsButton.textContent = "Details";
+        detailsButton.addEventListener("click", () => {
+            openDetailsModal(taskText);
         });
 
-        li.appendChild(deleteButton);
+        li.appendChild(detailsButton);
         taskList.appendChild(li);
         taskInput.value = "";
     }
+};
+
+const openDetailsModal = (taskText) => {
+    const modal = document.getElementById("detailsModal");
+    const closeButton = document.querySelector(".close");
+    const saveButton = document.getElementById("saveButton");
+    const detailsInput = document.getElementById("detailsInput");
+
+    modal.style.display = "block";
+
+    closeButton.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    saveButton.onclick = () => {
+        const details = detailsInput.value.trim();
+        // Update the task item with the details
+        // For example, you can create a <span> element and append it to the task item
+        const detailsSpan = document.createElement("span");
+        detailsSpan.textContent = details;
+        taskItem.appendChild(detailsSpan);
+
+        modal.style.display = "none";
+    }
+};
+
+    modalContent.appendChild(closeButton);
+    modalContent.appendChild(detailsInput);
+    modalContent.appendChild(saveButton);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
 };
 
 // Allow adding tasks with "Enter" key
