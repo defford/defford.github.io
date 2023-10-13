@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Timer Variables & Functions
     let interval;
     let timeLeft = 25 * 60;
-    const timerElement = document.getElementById("timer");
-
+    let timerElement;
+    
     const updateDisplay = () => {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
         timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     };
-
-    const startTimer = () => {
+    
+    window.startTimer = () => {
         interval = setInterval(() => {
             timeLeft--;
             updateDisplay();
@@ -20,23 +20,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         }, 1000);
     };
-
-    const stopTimer = () => {
+    
+    window.stopTimer = () => {
         clearInterval(interval);
     };
-
-    const resetTimer = () => {
+    
+    window.resetTimer = () => {
         clearInterval(interval);
         timeLeft = 25 * 60;
         updateDisplay();
     };
-    updateDisplay();
-
+    
     // To-Do Variables & Functions
-    const taskInput = document.getElementById("taskInput");
-    const taskList = document.getElementById("taskList");
-
-    const addTask = () => {
+    let taskInput;
+    let taskList;
+    
+    window.addTask = () => {
         const taskText = taskInput.value.trim();
         if (taskText !== "") {
             const li = document.createElement("li");
