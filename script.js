@@ -65,8 +65,7 @@ const addTask = () => {
         li.appendChild(detailsButton);
         taskList.appendChild(li);
         taskInput.value = "";
-        }
-};
+});
 
 const openDetailsModal = (taskItem) => {
     const modal = document.getElementById("detailsModal");
@@ -88,4 +87,4 @@ const openDetailsModal = (taskItem) => {
 
         modal.style.display = "none";
     }
-};
+}}}
