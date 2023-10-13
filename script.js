@@ -8,18 +8,25 @@ const updateDisplay = () => {
     // Your implementation for updating the display...
 };
 const startTimer = () => {
-    // Your implementation for starting the timer...
+    interval = setInterval(() => {
+        timeLeft--;
+        updateDisplay();
+        if (timeLeft === 0) {
+            clearInterval(interval);
+            // Call any additional logic you want to execute when the timer reaches 0
+        }
+    }, 1000);
 };
+
 const stopTimer = () => {
-    // Your implementation for stopping the timer...
+    clearInterval(interval);
 };
+
 const resetTimer = () => {
-    // Your implementation for resetting the timer...
+    clearInterval(interval);
+    timeLeft = 25 * 60;
+    updateDisplay();
 };
-// No longer need 'playBeep' function here
-// const playBeep = () => {
-    // Your implementation for playing the beep...
-//};
 updateDisplay();
 
 // To-Do Variables & Functions (no changes needed here)
