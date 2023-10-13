@@ -45,7 +45,7 @@ const addTask = () => {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click", () => {
-            li.remove();
+            li.parentNode.removeChild(li);
         });
 
         li.appendChild(deleteButton);
